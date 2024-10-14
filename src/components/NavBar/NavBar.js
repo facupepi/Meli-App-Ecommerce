@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {React, useState } from 'react';
+import {Link , useNavigate} from 'react-router-dom';
 import './NavBar.css';
-import { FaShoppingCart } from 'react-icons/fa'; // Icono del carrito
+import {FaShoppingCart } from 'react-icons/fa'; // Icono del carrito
+
+const linkLogo = "https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__large_plus@2x.png";
 
 const NavBar = ({ onSubmitSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate(); // Hook para redirigir a una ruta
 
   function handleSearch(e) {
     e.preventDefault();
-    if (searchQuery.trim() !== '') {
-      onSubmitSearch(searchQuery);
-    }
+    onSubmitSearch(searchQuery);
+    navigate(`/search/${searchQuery}`);  // Redirige al usuario a la página principal (/) cada vez que se realice una búsqueda desde el NavBar. Esto forzará una actualización de la lista de productos.
+  }
+
+  function handleClickLogo() {
+    onSubmitSearch('');
+    setSearchQuery('');
   }
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">
+        <Link onClick={handleClickLogo} to="/">
           <img
-            src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__large_plus@2x.png"
+            src= {linkLogo}
             alt="Mercado Libre Logo"
             className="logo"
           />
@@ -38,7 +45,7 @@ const NavBar = ({ onSubmitSearch }) => {
       </div>
       <div className="navbar-cart">
         <Link to="/cart">
-          <FaShoppingCart size={30} />
+          <FaShoppingCart/>
         </Link>
       </div>
     </nav>
