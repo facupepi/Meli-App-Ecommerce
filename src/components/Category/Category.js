@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import PropTypes from 'prop-types'; // Importar PropTypes
+import './Category.css'
 
 function Category() {
   const { id } = useParams(); // Extrae el ID de la URL
@@ -27,39 +28,43 @@ function Category() {
         setLoading(false);
         setCategory(null);
       });
-  }, [id]);
+  }, []);
 
+  if (loading) return (
+    <div className="category-container">
+      <p>Cargando...</p>
+    </div>
+  )
+  else if (error) return (
+    <div className="category-container">
+      <p>Error al cargar la categoria.</p>;
+    </div>
+  )
+  else
   return (
-    loading ? (<p>Cargando...</p>)
-    :
-    (
-      <div className="container">
-        {category
-          ? (
-            <div className="product-list">
-              <h2>{category.name}</h2>
-              <h3>Categorías Hijas:</h3>
-              {/* Muestra las categorías hijas */}
-              {category.children_categories.length > 0 ? (
-                category.children_categories.map((childCategory) => (
-                  <div className="card" key={childCategory.id}>
-                    <h3>{childCategory.name}</h3>
-                    <p>Total de productos: {childCategory.total_items_in_this_category}</p>
-                    <Link to={`/search/${childCategory.name}`} className="card-link">Ver productos</Link>
-                  </div>
-                ))
-              ) : (
-                <p>No se han encontrado categorías hijas relacionadas.</p>
-              )}
-            </div>
-          )
-          : (
-            <p>Error al cargar la categoría.</p>
-          )
-        }
-      </div>
-    )
+    <div className="category-container">
+      <h2>{category.name}</h2>
+        <div className="category-list">
+          {category.children_categories.length === 0 
+            ? <p>No se han encontrado categorías hijas relacionadas.</p>
+            : (
+              category.children_categories.map((childCategory) => (
+                <div className="card" key={childCategory.id}>
+                  <h3>{childCategory.name}</h3>
+                  <p>Total de productos: {childCategory.total_items_in_this_category}</p>
+                  <Link to={`/search/category=${childCategory.id}`} className="card-link">Ver productos</Link>
+                </div>
+              ))
+            )
+          }
+        </div>
+    </div>
   );
 }
+
+// Definir las validaciones de las props
+Category.propTypes = {
+  onSubmitSearch: PropTypes.func.isRequired
+};
 
 export default Category;

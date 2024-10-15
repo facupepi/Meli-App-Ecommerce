@@ -25,34 +25,29 @@ function Product() {
       });
   }, [id]);
 
-  if (loading) return <p>Cargando...</p>;
-  else if (error) return <p>Error al cargar el producto.</p>;
+  if (loading) return (
+    <div className="container">
+      <p>Cargando...</p>
+    </div>
+  )
+  else if (error) return (
+    <div className="container">
+      <p>Error al cargar el producto.</p>;
+    </div>
+  )
   else
     return (
       <div className="container">
         <div className="product-view-container">
           <Carousel showArrows={true} infiniteLoop={true} showThumbs={true}>
-            {product.pictures.map((picture, index) => (
-              <img
-                key={index}
-                src={picture.secure_url}
-                alt={`Imagen ${index + 1} de ${product.title}`}
-              />
-            ))}
+            {product.pictures.map((picture, index) => <img key={index} src={picture.secure_url} alt={`Imagen ${index + 1} de ${product.title}`}/>)}
           </Carousel>
 
           <div className="product-view-details-section">
             <h1 className="product-view-title">{product.title}</h1>
-
             <p className="product-view-price">${product.price}</p>
-
-            <p className="product-view-stock">
-              {product.initial_quantity} unidad(es) disponibles
-            </p>
-
-            <button className="product-view-add-to-cart-btn">
-              Agregar al carrito
-            </button>
+            <p className="product-view-stock">{product.initial_quantity} unidad(es) disponibles</p>
+            <button className="product-view-add-to-cart-btn">Agregar al carrito</button>
           </div>
         </div>
       </div>
