@@ -1,12 +1,29 @@
 /* Contenedor principal del producto */
+#root{
+    background: #ededed;
+}
+
+.container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-view-details-section {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 10px;
+}
+
 .product-view-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding: 20px;
     border: 1px solid #e6e6e6;
     border-radius: 8px;
     background-color: #fff;
-    max-width: 80vw;
     margin: 20px auto;
     gap: 20px;
 }
@@ -42,17 +59,15 @@
 
 /* Carrusel principal */
 .carousel {
-    max-width: 400px;
+    max-width: 600px;
     /* Limita el tamaño máximo del carrusel */
     margin-right: 20px;
 }
 
 .carousel .slide img {
-    max-width: 100%;
-    /* Imagen ocupa todo el ancho disponible sin salirse */
-    height: auto;
-    /* Mantiene la proporción */
-    border-radius: 8px;
+    height: 400px;
+    object-fit: contain;
+    object-position: center;
 }
 
 /* Botones de navegación */
@@ -76,15 +91,18 @@
 }
 
 .carousel .thumb img {
-    width: 60px;
-    /* Tamaño adecuado para las miniaturas */
-    height: auto;
-    border-radius: 5px;
+    height: 90px;
+    object-fit: contain;
+    object-position: center;
 }
 .carousel .thumb.selected,
 .carousel .thumb:hover {
     opacity: 1;
     border: 2px solid #3483fa;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow {
+    background: #d3d3d3 ;
 }
 
 /* Estilos responsivos */

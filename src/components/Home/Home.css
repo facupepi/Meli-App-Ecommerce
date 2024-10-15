@@ -1,17 +1,19 @@
 /* Contenedor principal de la página */
 .home-container {
-  padding: 20px;
-  background-color: #f9f9f9;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ededed;
   display: flex;
   justify-content: center;
 }
 
 /* Contenedor de tarjetas */
 .card-container {
+  padding: 30px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  max-width: 1200px;
   justify-content: center;
 }
 
@@ -44,9 +46,9 @@
 .card-link {
   display: inline-block;
   margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #3483fa;
-  color: white;
+  padding: 5px 15px;
+  background-color: #fff159;
+  color: #000;
   text-decoration: none;
   border-radius: 5px;
   font-size: 14px;
@@ -55,7 +57,7 @@
 
 /* Efecto hover para el enlace */
 .card-link:hover {
-  background-color: #2968c8;
+  background-color: #d8cc46;
 }
 
 /* Estilos responsivos */
