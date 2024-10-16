@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from 'react-router-dom';
-import PropTypes from 'prop-types'; // Importar PropTypes
 import './Category.css'
 
 function Category() {
@@ -31,9 +30,11 @@ function Category() {
   }, []);
 
   if (loading) return (
-    <div className="category-container">
-      <p>Cargando...</p>
-    </div>
+    <div className="container h-100">
+      <svg viewBox="25 25 50 50">
+          <circle r="20" cy="50" cx="50"></circle>
+      </svg>
+  </div>
   )
   else if (error) return (
     <div className="category-container">
@@ -42,8 +43,8 @@ function Category() {
   )
   else
   return (
-    <div className="category-container">
-      <h2>{category.name}</h2>
+    <div className="container">
+      <h2 className="title-category">{category.name}</h2>
         <div className="category-list">
           {category.children_categories.length === 0 
             ? <p>No se han encontrado categorías hijas relacionadas.</p>
@@ -61,10 +62,5 @@ function Category() {
     </div>
   );
 }
-
-// Definir las validaciones de las props
-Category.propTypes = {
-  onSubmitSearch: PropTypes.func.isRequired
-};
 
 export default Category;

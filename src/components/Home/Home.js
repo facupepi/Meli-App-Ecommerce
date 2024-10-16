@@ -29,7 +29,9 @@ function Home() {
 
   if (loading) return (
     <div className="home-container">
-      <p>Cargando categorías...</p>
+      <svg viewBox="25 25 50 50">
+      <circle r="20" cy="50" cx="50"></circle>
+    </svg>
     </div>
   )
   else if (error) return (

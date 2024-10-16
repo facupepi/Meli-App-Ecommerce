@@ -1,3 +1,6 @@
+body {
+  background: #ededed !important;
+}
 /* Contenedor principal de la página */
 .home-container {
   width: 80%;
@@ -10,7 +13,7 @@
 
 /* Contenedor de tarjetas */
 .card-container {
-  padding: 30px;
+  padding: 30px 0px 30px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -47,7 +50,6 @@
   display: inline-block;
   margin-top: 10px;
   padding: 5px 15px;
-  background-color: #fff159;
   color: #000;
   text-decoration: none;
   border-radius: 5px;
@@ -57,7 +59,7 @@
 
 /* Efecto hover para el enlace */
 .card-link:hover {
-  background-color: #d8cc46;
+  background-color: #fff159;
 }
 
 /* Estilos responsivos */
@@ -66,9 +68,44 @@
     flex-direction: column;
     align-items: center;
   }
-
-  .card {
-    width: 100%;
-    max-width: 300px;
-  }
 }
+
+
+/* From Uiverse.io by barisdogansutcu */ 
+.container svg {
+  width: 3.25em;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+ }
+ circle {
+  fill: none;
+  stroke: hsl(214, 97%, 59%);
+  stroke-width: 2;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+ }
+ 
+ @keyframes rotate4 {
+  100% {
+   transform: rotate(360deg);
+  }
+ }
+ 
+ @keyframes dash4 {
+  0% {
+   stroke-dasharray: 1, 200;
+   stroke-dashoffset: 0;
+  }
+ 
+  50% {
+   stroke-dasharray: 90, 200;
+   stroke-dashoffset: -35px;
+  }
+ 
+  100% {
+   stroke-dashoffset: -125px;
+  }
+ }
+ 

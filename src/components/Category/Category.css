@@ -9,8 +9,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    width: 700px;
     margin: auto;
     justify-content: center;
     align-items: center;
 }
+
+.title-category {
+    background-color: #fff159;
+    width: 80%;
+    padding: 10px 0px;
+    text-align: center;
+}	

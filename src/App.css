@@ -1,4 +1,6 @@
-
+body {
+  background: #ededed !important;
+}
 
 .product-item {
   border: 1px solid #ddd;

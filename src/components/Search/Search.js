@@ -38,8 +38,10 @@ function Search() {
 
     if (loading) {
         return (
-            <div className="container">
-                <p>Cargando...</p>
+            <div className="container h-100">
+                <svg viewBox="25 25 50 50">
+                    <circle r="20" cy="50" cx="50"></circle>
+                </svg>
             </div>
         );
     }
@@ -71,10 +73,17 @@ function Search() {
                         </div>
                         <div className="product-info">
                             <h3 className="product-title">{product.title}</h3>
-                            <p className="product-price">${product.price}</p>
+
+                            {product.price
+                                ? <p className="product-price"> {product.currency_id} {product.price.toLocaleString()}</p>
+                                : <p className="product-price">Consultar Precio</p>
+                            }
+
+                            <p className="product-condition">Condición: {product.condition === 'new' ? 'Nuevo' : 'Usado'}</p>
+                            {product.shipping.free_shipping? <p className="product-shipping">Envío gratis</p> : null}
                             <p className="product-store">Por {product.seller?.nickname}</p>
+                            
                             <Link to={`/product/${product.id}`} className="btn-detail">Ver Detalle</Link>
-                            <button className="btn-add-cart">Agregar al Carrito</button>
                         </div>
                     </div>
                 ))}
