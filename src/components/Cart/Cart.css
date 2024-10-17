@@ -4,7 +4,7 @@
         width: 100% !important;
     }
     .cart-summary{
-        width: 88% !important;
+        width: 100% !important
     }   
     .cart-items{
         width: 100% !important;
@@ -107,6 +107,7 @@
     font-size: 14px;
     margin-top: 10px;
     text-align: left;
+    padding: 0;
 }
 
 .cart-summary {

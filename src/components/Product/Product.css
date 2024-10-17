@@ -1,16 +1,4 @@
-@media (max-width: 769px) {
-    .product-list{
-        max-width: 300px;
-    }
-    .product-image {
-        width: 250px !important;
-        height: 90px;
-    }
-    .product-item {
-        flex-direction: column !important;
-        align-items: center;
-    }
-}
+
 .product-item {
     display: flex;
     flex-direction: row;
@@ -65,6 +53,11 @@
     font-size: 16px;
     color: #333;
     margin-bottom: 20px;
+    white-space: normal; /* Permite el salto de línea automático */
+    overflow-wrap: break-word; /* Fuerza al texto a romperse si es muy largo */
+    word-wrap: break-word; /* Soporte adicional para navegadores más antiguos */
+    max-width: 100%; /* Asegura que el texto no sobrepase el ancho del contenedor */
+    box-sizing: border-box; /* Asegura que el padding esté incluido en el ancho */
 }
 
 /*Quitar flechas campo input number*/
@@ -220,6 +213,17 @@
     /* Fondo al pasar el ratón */
 }
 
+.product-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    box-sizing: content-box;
+  }
+  
+  .product-item img {
+    max-width: 100%;
+  }
+
 /* Carrusel principal */
 .carousel {
     max-width: 600px;
@@ -269,8 +273,28 @@
     background: #d3d3d3;
 }
 
+/* Estilos para centrar y ajustar el tamaño del modal */
+.modal-dialog {
+    max-width: 500px; /* Limita el ancho del modal */
+    margin: 10px auto; /* Centra el modal */
+}
+
+.modal-content {
+    max-height: 80vh; /* Limita la altura máxima del modal al 80% de la ventana */
+    padding: 20px;
+}
+
+.modal{
+    box-sizing:content-box;
+}
+
+.modal-backdrop.fade {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
 /* Estilos responsivos */
-@media (max-width: 768px) {
+@media (max-width: 1350px) {
     .product-view-container {
         flex-direction: column;
         align-items: center;
@@ -283,4 +307,44 @@
         width: 50px;
         /* Miniaturas más pequeñas en pantallas pequeñas */
     }
+
+    .carousel-root{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-list{
+        max-width: 300px;
+    }
+    .product-image {
+        width: 250px !important;
+        height: 90px;
+    }
+    .product-item {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .modal-dialog {
+        max-width: 300px; /* Limita el ancho del modal */
+    }
 }
+
+.product-view-atributes table {
+    table-layout: fixed; /* Fija el ancho de la tabla */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.product-view-atributes td,
+.product-view-atributes th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    white-space: normal; /* Permite que el texto ocupe varias líneas si es necesario */
+    word-wrap: break-word; /* Rompe las palabras largas si exceden el ancho */
+    overflow-wrap: break-word; /* Soporte adicional para navegadores modernos */
+}
+
+
+
