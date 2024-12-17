@@ -8,12 +8,13 @@ function Category() {
   const [error, setError] = useState(null); // Estado para manejar errores
   const [loading, setLoading] = useState(true); // Estado para manejar el estado de carga
 
-  const request = {
-    method: 'GET', // Método de solicitud HTTP
-    headers: { 'Content-Type': 'application/json' } // Cabeceras de la solicitud
-  };
-
   useEffect(() => {
+
+    const request = {
+      method: 'GET', // Método de solicitud HTTP
+      headers: { 'Content-Type': 'application/json' } // Cabeceras de la solicitud
+    };
+
     // Realiza la solicitud para obtener la categoría usando la API de Mercado Libre
     fetch(`https://api.mercadolibre.com/categories/${id}`, request)
       .then((response) => {
@@ -30,7 +31,7 @@ function Category() {
         setLoading(false); // Cambia el estado de carga a falso
         setCategory(null); // Reinicia el estado de categoría
       });
-  }, [id,request]); // Se ejecuta cuando el `id` cambia
+  }, [id]); // Se ejecuta cuando el `id` cambia
 
   // Muestra un spinner mientras se carga la categoría
   if (loading) return (

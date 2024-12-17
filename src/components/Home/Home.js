@@ -7,12 +7,11 @@ function Home() {
   const [error, setError] = useState(null); // Estado para manejar errores
   const [loading, setLoading] = useState(true); // Estado para manejar el estado de carga
 
-  const request = {
-    method: 'GET', // Método de solicitud HTTP
-    headers: { 'Content-Type': 'application/json' } // Cabeceras de la solicitud
-  };
-
   useEffect(() => {
+    const request = {
+      method: 'GET', // Método de solicitud HTTP
+      headers: { 'Content-Type': 'application/json' } // Cabeceras de la solicitud
+    };
     // Realiza la solicitud para obtener las categorías usando la API de Mercado Libre
     fetch(`https://api.mercadolibre.com/sites/MLA/categories`, request)
       .then((response) => {

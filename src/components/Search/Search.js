@@ -16,14 +16,15 @@ function Search() {
     // Hook `useParams` para extraer la consulta de búsqueda desde la URL
     const { query } = useParams(); 
 
-    // Objeto para definir el tipo de request, en este caso una solicitud GET
-    const request = {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'}
-    };
-
     // `useEffect` se ejecuta cuando cambia el `query` o el valor de `page`, haciendo la petición a la API
     useEffect(() => {
+
+        // Objeto para definir el tipo de request, en este caso una solicitud GET
+        const request = {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        };
+
         setLoading(true); 
         if (query === '') {
             setListOfProducts(null); // Si no hay consulta, resetea la lista de productos
