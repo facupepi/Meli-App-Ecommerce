@@ -30,7 +30,7 @@ function Category() {
         setLoading(false); // Cambia el estado de carga a falso
         setCategory(null); // Reinicia el estado de categoría
       });
-  }, [id]); // Se ejecuta cuando el `id` cambia
+  }, [id,request]); // Se ejecuta cuando el `id` cambia
 
   // Muestra un spinner mientras se carga la categoría
   if (loading) return (

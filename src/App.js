@@ -102,11 +102,9 @@ function App() {
 
 export default App;
 
-{
     /* ANEXO: Explicación de la función `reduce` en el cálculo del total del carrito
     La función `reduce` toma dos argumentos: una función de callback y un valor inicial (en este caso, 0).
     La función de callback toma dos parámetros: `sum` (el acumulador) e `item` (el elemento actual del array).
     En cada iteración, sum se incrementa por la cantidad (`quantity`) del item actual.
     El resultado final es la suma total de las cantidades de todos los elementos en el carrito.
     */
-}
